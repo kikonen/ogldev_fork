@@ -2,7 +2,7 @@
 
 CC=g++
 CPPFLAGS=`pkg-config --cflags glew ImageMagick freetype2 glfw3 fontconfig assimp`
-CPPFLAGS="$CPPFLAGS -I../Include -I../Common/FreetypeGL -ggdb3"
+CPPFLAGS="$CPPFLAGS -I../Include -I../Common/FreetypeGL -I/usr/include/freetype2 -ggdb3"
 LDFLAGS=`pkg-config --libs glew ImageMagick freetype2 glfw3 fontconfig assimp`
 LDFLAGS="$LDFLAGS -lglut ../Lib/libAntTweakBar.a -lX11 -lmeshoptimizer"
 
