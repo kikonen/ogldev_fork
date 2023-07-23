@@ -142,10 +142,16 @@ public:
         for (uint i = 0 ; i < NUM_CASCADES ; i++) {
             Matrix4f Proj;
             Proj.InitPersProjTransform(m_persProjInfo);
+            printf("-----\n");
+            Proj.Print();
+            printf("-----\n");
             Vector4f vView(0.0f, 0.0f, m_cascadeEnd[i + 1], 1.0f);
             Vector4f vClip = Proj * vView;
             vClip.Print();
             m_LightingTech.SetCascadeEndClipSpace(i, vClip.z);
+
+            printf("clipZ: idx=%d cascadeEnd=%f clipZ=%f\n", i, m_cascadeEnd[i + 1], vClip.z);
+
         }
 
         if (!m_mesh.LoadMesh("../Content/dragon.obj")) {
@@ -194,6 +200,8 @@ public:
 
         TwAddVarRO(bar, "GL Major Version", TW_TYPE_INT32, &gGLMajorVersion, " label='Major version of GL' ");
 #endif
+
+        exit(-1);
         return true;
     }
 
